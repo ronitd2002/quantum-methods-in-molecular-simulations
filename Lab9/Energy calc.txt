@@ -1,0 +1,9 @@
+> Total_energy (RELAX) =  -15.8529325684 Ry
+
+> Total Energy (natoms-64) [BULK-optimization] =  -506.8966179159 Ry
+
+> Total Energy (natoms-64) [SURFACE-optimization-100]= -502.69885972 Ry
+(convergence has been achieved in  23 iterations)
+
+> Total Energy (natoms-64) [SURFACE-optimization-100]= -500.35268267 Ry
+(convergence NOT achieved after 100 iterations)

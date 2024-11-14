@@ -1,0 +1,34 @@
+ &CONTROL
+    prefix='sodium',
+    pseudo_dir ='./',
+    outdir     ='./',
+ /
+
+ &SYSTEM    
+    ibrav = 3,
+    celldm(1) = 10.6,
+    nat =  1,
+    ntyp = 1,
+    ecutwfc = 35.0, 
+    ecutrho = 140.0,
+ /
+ 
+ &ELECTRONS
+    conv_thr=1d-06,
+ /
+
+ATOMIC_SPECIES
+   Na 22.989  Na-bcc.pz-vbc.UPF
+   
+ATOMIC_POSITIONS alat
+   Na 0.25 0.25 0.25
+   ! this is a comment i
+
+#K_POINTS tpiba
+# this is also a comment: next line, number of k-points
+# 2
+# 0.25 0.25 0.25  1.0
+# 0.25 0.25 0.75  3.0
+
+K_POINTS automatic
+   4 4 4   1 1 1 

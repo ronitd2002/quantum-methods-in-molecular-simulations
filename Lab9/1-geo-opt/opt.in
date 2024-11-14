@@ -1,0 +1,42 @@
+ &CONTROL
+    prefix='silicon',
+    pseudo_dir = './',
+    outdir     ='./',
+    calculation = 'relax'  
+    ! relax: only the atomic positions  
+    ! vc-relax: both atomic positions and lattice constants
+ /
+
+ &SYSTEM    
+    ibrav = 2,
+    celldm(1) = 10.2,
+    nat =  2,
+    ntyp = 1,
+    ecutwfc = 35.0, 
+    ecutrho = 140.0,
+ /
+ 
+ &ELECTRONS
+    conv_thr=1d-06
+ /
+
+ &IONS 
+/
+
+
+ATOMIC_SPECIES
+   Si  28.086  Si.pz-vbc.UPF
+   
+ATOMIC_POSITIONS alat
+   Si 0.00 0.00 0.00 
+   Si 0.25 0.25 0.25 
+   ! this is a comment 
+
+#K_POINTS tpiba
+# this is also a comment: next line, number of k-points
+# 2
+# 0.25 0.25 0.25  1.0
+# 0.25 0.25 0.75  3.0
+
+K_POINTS automatic
+   10 10 10   1 1 1 

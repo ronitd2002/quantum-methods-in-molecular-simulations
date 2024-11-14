@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\begin{document}
+
+\section*{Numerical optimization algorithms: Broyden's method}
+
+
+\begin{algorithmic}[1]
+    \STATE Choose $x^{(0)}$
+    \STATE $B^{(0)} = B(x^{(0)})$
+    \STATE $d^{(0)} = -B_0^{-1} \nabla f(x^{(0)})$
+    \STATE $x^{(1)} = x^{(0)} + d^{(0)}$
+    \STATE $k = 0$
+    \WHILE{not converged}
+        \STATE $u^{(k)} = B_k^{-1} \nabla f(x^{(k+1)})$
+        \STATE $c_k = d^{(k)} \cdot (d^{(k)} + u^{(k)})$
+	\STATE $B_{k+1}^{-1} = B_k^{-1} - \frac{1}{c_k} [u^{(k)} \otimes d^{(k)}]B_k^{-1}$
+        \STATE $k = k+1$
+        \STATE $d^{(k)} = -B_k^{-1} \nabla f(x^{(k)})$
+        \STATE $x^{(k+1)} = x^{(k)} + d^{(k)}$
+    \ENDWHILE
+\end{algorithmic}
+
+
+\subsection*{Advantages and disadvantages}
+
+\subsubsection*{Advantages:} 
+\begin{enumerate}
+    \item Computation of derivates is not needed unlike the Newton's method, thus avoids expensive computation of full Hessian matrix 
+    \item  Not sensitive to the choice of the initial guess 
+    \item Memory-efficient, especially in situations where the Jacobian matrix is large and sparse.
+\end{enumerate}
+
+\subsubsection*{Disadvantages:} 
+
+\begin{enumerate}
+    \item Sensitive to the choice of the initial approximation to the Jacobian.
+    \item Convergence issues where the objective function has multiple minima or when the solution is in the vicinity of a saddle point.
+\end{enumerate}
+
+
+\end{document}
+
